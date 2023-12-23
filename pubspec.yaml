@@ -38,6 +38,10 @@ dependencies:
   dots_indicator: ^3.0.0
   font_awesome_flutter: ^10.6.0
   percent_indicator: ^4.2.3
+  floating_frosted_bottom_bar: ^0.0.1
+  crystal_navigation_bar: ^1.0.0
+  iconly: ^1.0.1
+  awesome_icons: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -67,11 +71,17 @@ flutter:
     - assets/images/screen2/
     - assets/images/screen3/
     - assets/images/screen4/
+    - assets/images/screen4/appbar/
     - assets/images/screen5/
+    - assets/images/screen5/a_with.png
     - assets/images/screen6/
     - assets/images/screen7/
     - assets/images/screen8/
     - assets/images/screen9/
+    - assets/images/screen9/circls/
+    - assets/images/screen9/brands/
+    - assets/images/screen9/last_container/
+    - assets/images/screen9/arrow.png
     - assets/images/screen10/
 
   #   - images/a_dot_ham.jpeg

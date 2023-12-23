@@ -1,7 +1,10 @@
+import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:sheet/screen6/data.dart';
-import 'package:sheet/screen6/data_of_steps.dart';
-import 'package:sheet/screen6/hours.dart';
+import 'package:sheet/screen7/screen_seven.dart';
+import 'components/app_bar_six/appbar_actiorns.dart';
+import 'components/app_bar_six/appbar_title.dart';
+import 'hours_model/the_widget_of_hours.dart';
+import 'model/the_widget.dart';
 
 class Screen_Six extends StatelessWidget {
   const Screen_Six({super.key});
@@ -10,54 +13,18 @@ class Screen_Six extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff28333F),
-        elevation: 0,
-        title: Text(
-          'History',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Icon(Icons.mail_outline),
-              Positioned(
-                  right: .5,
-                  top: 16,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.red,
-                    radius: 6,
-                  ))
-            ],
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Icon(Icons.mail_outline),
-              Positioned(
-                  right: .5,
-                  top: 16,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.red,
-                    radius: 6,
-                  ))
-            ],
-          ),
-          SizedBox(
-            width: 15,
-          ),
-        ],
-      ),
+          backgroundColor: const Color(0xff28333F),
+          elevation: 0,
+          title: const AppBarTittleSix(),
+          actions: const [
+            AppBarActionsSix(),
+          ]),
       body: ListView(
         shrinkWrap: true,
-
         children: [
           Container(
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -71,20 +38,26 @@ class Screen_Six extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  Hours(),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ListView.separated(
-                    shrinkWrap: true,
-
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) =>
-                          DataOfSteps(data: post[index]),
-                      separatorBuilder: (context, index) => SizedBox(
-                            height: 10,
-                          ),
-                      itemCount: post.length)
+                  Container(
+                      padding:
+                          const EdgeInsets.only(top: 15, left: 25, right: 25),
+                      height: 100,
+                      width: 370,
+                      decoration: BoxDecoration(
+                        color: const Color(0xff494d6e),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: TheWidgetOfHours()),
+                  const SizedBox(height: 10),
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ScreenSeven(),
+                            ));
+                      },
+                      child: const TheStepsWidget()),
                 ],
               ),
             ),
